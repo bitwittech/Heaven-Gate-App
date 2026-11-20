@@ -3,6 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 import { useState } from 'react';
 import {
   ActivityIndicator,
+  Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -83,7 +84,7 @@ export default function LoginScreen() {
         !['team_member', 'associate'].includes(result.user.role)
       ) {
         throw new Error(
-          'This account is not enabled for the Heaven Gate mobile app.'
+          'This account is not enabled for the AmbuLens Partner app.'
         );
       }
 
@@ -103,7 +104,7 @@ export default function LoginScreen() {
     } catch (err) {
       if (err instanceof TypeError) {
         setError(
-          'Cannot connect to Heaven Gate. Check that the backend is running and the API address is correct.'
+          'Cannot connect to AmbuLens Partner. Check that the backend is running and the API address is correct.'
         );
       } else {
         setError(
@@ -134,10 +135,13 @@ export default function LoginScreen() {
         </Pressable>
 
         <View style={styles.brand}>
-          <View style={styles.logo}>
-            <Text style={styles.logoText}>HG</Text>
-          </View>
-          <Text style={styles.brandName}>HEAVEN GATE</Text>
+          <Image
+            source={require('../AmbuLens Partner Logo.png')}
+            style={styles.logo}
+            resizeMode="contain"
+            accessibilityLabel="AmbuLens Partner logo"
+          />
+          <Text style={styles.brandName}>AmbuLens Partner</Text>
           <Text style={styles.tagline}>
             A helping hand when it matters most.
           </Text>
@@ -222,7 +226,7 @@ export default function LoginScreen() {
 
           <View style={styles.registerRow}>
             <Text style={styles.registerText}>
-              New to Heaven Gate?
+              New to AmbuLens Partner?
             </Text>
             <Pressable
               disabled={loading}
@@ -268,25 +272,17 @@ const styles = StyleSheet.create({
     marginBottom: 34,
   },
   logo: {
-    width: 60,
-    height: 60,
+    width: 120,
+    height: 120,
     borderRadius: 20,
-    backgroundColor: '#174D48',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
     marginBottom: 12,
-  },
-  logoText: {
-    color: '#FFFFFF',
-    fontSize: 21,
-    fontWeight: '800',
-    letterSpacing: 1,
   },
   brandName: {
     color: '#174D48',
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: '800',
-    letterSpacing: 2.5,
+    letterSpacing: 0.3,
   },
   tagline: {
     color: '#718096',

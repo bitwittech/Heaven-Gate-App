@@ -4,6 +4,7 @@ import * as SecureStore from 'expo-secure-store';
 import { useState } from 'react';
 import {
   ActivityIndicator,
+  Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -253,7 +254,7 @@ export default function RegisterScreen() {
     } catch (err) {
       setError(
         err instanceof TypeError
-          ? 'Cannot connect to Heaven Gate. Check that the backend is running and the API URL is correct.'
+          ? 'Cannot connect to AmbuLens Partner. Check that the backend is running and the API URL is correct.'
           : err instanceof Error
             ? err.message
             : 'Could not create your account.'
@@ -296,11 +297,14 @@ export default function RegisterScreen() {
         </Pressable>
 
         <View style={styles.brandRow}>
-          <View style={styles.logo}>
-            <Text style={styles.logoText}>HG</Text>
-          </View>
+          <Image
+            source={require('../AmbuLens Partner Logo.png')}
+            style={styles.logo}
+            resizeMode="contain"
+            accessibilityLabel="AmbuLens Partner logo"
+          />
           <View>
-            <Text style={styles.brandName}>HEAVEN GATE</Text>
+            <Text style={styles.brandName}>AmbuLens Partner</Text>
             <Text style={styles.brandCaption}>SERVICE PARTNER NETWORK</Text>
           </View>
         </View>
@@ -469,7 +473,7 @@ export default function RegisterScreen() {
         </View>
 
         <Text style={styles.footer}>
-          Heaven Gate · Service with compassion and dignity
+          AmbuLens Partner · Service with compassion and dignity
         </Text>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -608,12 +612,8 @@ const styles = StyleSheet.create({
   backButton: { alignSelf: 'flex-start', paddingVertical: 8, marginBottom: 20 },
   back: { color: TEAL, fontSize: 15, fontWeight: '700' },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  logo: {
-    width: 45, height: 45, borderRadius: 15, backgroundColor: TEAL,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  logoText: { color: '#FFFFFF', fontSize: 16, fontWeight: '900', letterSpacing: 1 },
-  brandName: { color: NAVY, fontSize: 14, fontWeight: '900', letterSpacing: 1.8 },
+  logo: { width: 56, height: 56, borderRadius: 10, backgroundColor: '#FFFFFF' },
+  brandName: { color: NAVY, fontSize: 13, fontWeight: '900', letterSpacing: 0.3 },
   brandCaption: { color: '#718096', fontSize: 9, fontWeight: '700', letterSpacing: 1, marginTop: 4 },
   heading: { marginTop: 29, marginBottom: 20 },
   roleBadge: {

@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import * as SecureStore from 'expo-secure-store';
 import {
+  Image,
   Pressable,
   ScrollView,
   type ScrollViewInstance,
@@ -75,7 +76,7 @@ export default function WelcomeScreen() {
       <SafeAreaView style={styles.screen}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ color: TEAL, fontWeight: '800' }}>
-            HEAVEN GATE
+            AmbuLens Partner
           </Text>
         </View>
       </SafeAreaView>
@@ -95,10 +96,13 @@ export default function WelcomeScreen() {
         <View style={{ width, height: pageHeight }}>
           <View style={[styles.pageContent, { minHeight: pageHeight }]}>
             <View style={styles.brandRow}>
-              <View style={styles.logo}>
-                <Text style={styles.logoText}>HG</Text>
-              </View>
-              <Text style={styles.brand}>HEAVEN GATE</Text>
+              <Image
+                source={require('../AmbuLens Partner Logo.png')}
+                style={styles.logo}
+                resizeMode="contain"
+                accessibilityLabel="AmbuLens Partner logo"
+              />
+              <Text style={styles.brand}>AmbuLens Partner</Text>
             </View>
 
             <View style={styles.hero}>
@@ -161,10 +165,13 @@ export default function WelcomeScreen() {
         <View style={{ width, height: pageHeight }}>
           <View style={[styles.pageContent, { minHeight: pageHeight }]}>
             <View style={styles.brandRow}>
-              <View style={styles.logo}>
-                <Text style={styles.logoText}>HG</Text>
-              </View>
-              <Text style={styles.brand}>HEAVEN GATE</Text>
+              <Image
+                source={require('../AmbuLens Partner Logo.png')}
+                style={styles.logo}
+                resizeMode="contain"
+                accessibilityLabel="AmbuLens Partner logo"
+              />
+              <Text style={styles.brand}>AmbuLens Partner</Text>
             </View>
 
             <View style={styles.hero}>
@@ -180,12 +187,12 @@ export default function WelcomeScreen() {
                 <Text style={styles.accent}>Together.</Text>
               </Text>
               <Text style={styles.description}>
-                Heaven Gate helps service partners organise leads, coordinate
+                AmbuLens Partner helps service partners organise leads, coordinate
                 their work, and follow the progress of enquiries.
               </Text>
             </View>
 
-            <Text style={styles.sectionTitle}>How Heaven Gate works</Text>
+            <Text style={styles.sectionTitle}>How AmbuLens Partner works</Text>
 
             <View style={styles.steps}>
               <Step
@@ -301,12 +308,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  logo: {
-    width: 44, height: 44, borderRadius: 15, backgroundColor: TEAL,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  logoText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900', letterSpacing: 1 },
-  brand: { color: NAVY, fontSize: 15, fontWeight: '800', letterSpacing: 2 },
+  logo: { width: 48, height: 48, backgroundColor: '#FFFFFF', borderRadius: 10 },
+  brand: { color: NAVY, fontSize: 14, fontWeight: '800', letterSpacing: 0.5 },
   hero: { marginTop: 18 },
   heroIcon: {
     width: 78, height: 78, borderRadius: 26, backgroundColor: '#E0ECE7',

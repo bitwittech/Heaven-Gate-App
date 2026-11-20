@@ -1,9 +1,10 @@
 {
   "expo": {
-    "name": "Heaven Gate Services",
-    "slug": "heaven-gate-services",
-    "scheme": "heavengate",
+    "name": "AmbuLens Partner",
+    "slug": "ambulens-partner",
+    "scheme": "ambulenspartner",
     "version": "1.0.0",
+    "icon": "./AmbuLens Partner Logo.png",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "plugins": [
@@ -11,7 +12,11 @@
       "expo-secure-store"
     ],
     "android": {
-      "package": "com.example.carepathservices"
+      "package": "com.example.carepathservices",
+      "adaptiveIcon": {
+        "foregroundImage": "./AmbuLens Partner Logo.png",
+        "backgroundColor": "#FFFFFF"
+      }
     }
   }
 }

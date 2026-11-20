@@ -10,6 +10,7 @@ import {
     Alert,
     AppState,
     BackHandler,
+    Image,
 
     KeyboardAvoidingView,
 
@@ -442,7 +443,7 @@ export default function DashboardScreen() {
 
             setError(err instanceof TypeError
 
-                ? 'Cannot connect to Heaven Gate. Check that the backend is running and the API URL is correct.'
+                ? 'Cannot connect to AmbuLens Partner. Check that the backend is running and the API URL is correct.'
 
                 : err instanceof Error ? err.message : 'Could not load your dashboard.');
 
@@ -907,7 +908,7 @@ export default function DashboardScreen() {
 
     if (loading && !dashboard) {
 
-        return <View style={styles.center}><ActivityIndicator size="large" color="#174D48" /><Text style={styles.muted}>Loading your Heaven Gate dashboard…</Text></View>;
+        return <View style={styles.center}><ActivityIndicator size="large" color="#174D48" /><Text style={styles.muted}>Loading your AmbuLens Partner dashboard…</Text></View>;
 
     }
 
@@ -1008,7 +1009,7 @@ export default function DashboardScreen() {
 
                     <View style={styles.headerRow}>
 
-                        <View style={styles.brandBlock}><View style={styles.logo}><Text style={styles.logoText}>HG</Text></View><View style={styles.brandCopy}><Text style={styles.brand}>HEAVEN GATE</Text><Text style={styles.eyebrow}>MEMBER PORTAL</Text></View></View>
+                        <View style={styles.brandBlock}><Image source={require('../AmbuLens Partner Logo.png')} style={styles.logo} resizeMode="contain" accessibilityLabel="AmbuLens Partner logo" /><View style={styles.brandCopy}><Text style={styles.brand}>AmbuLens Partner</Text><Text style={styles.eyebrow}>MEMBER PORTAL</Text></View></View>
 
                         <Pressable onPress={() => void loadDashboard(true)} style={styles.refreshButton}><Text style={styles.refreshText}>Refresh</Text></Pressable>
 
@@ -1075,7 +1076,7 @@ export default function DashboardScreen() {
 
                     <Pressable style={styles.button} onPress={logout}><Text style={styles.buttonText}>Log Out</Text></Pressable>
 
-                    <Text style={styles.footerText}>Heaven Gate · A helping hand when it matters most.</Text>
+                    <Text style={styles.footerText}>AmbuLens Partner · A helping hand when it matters most.</Text>
 
                 </> : null}
 
@@ -1100,7 +1101,7 @@ export default function DashboardScreen() {
 
 
                 {view === 'add-lead' ? <>
-                    {pageHeader('Add New Lead', 'Submit a customer enquiry for the Heaven Gate team to review.')}
+                    {pageHeader('Add New Lead', 'Submit a customer enquiry for the AmbuLens Partner team to review.')}
                     {serviceTypesLoading ? <Loader label="Loading available services…" /> : <View style={styles.formCard}>
                         <FieldLabel text="Service type *" />
                         {serviceTypes.length === 0 ? <EmptyState title="No active services" message="Ask the admin to activate a service type before adding a lead." /> : <View style={styles.filterRow}>{serviceTypes.map(service => <Pressable key={service.id} onPress={() => setSelectedServiceTypeId(service.id)} style={[styles.filterChip, selectedServiceTypeId === service.id && styles.filterChipActive]}><Text style={[styles.filterChipText, selectedServiceTypeId === service.id && styles.filterChipTextActive]}>{service.name}</Text></Pressable>)}</View>}
@@ -1287,7 +1288,7 @@ export default function DashboardScreen() {
                             <FieldLabel text="IFSC code" /><TextInput value={profile.ifscCode} onChangeText={v => setProfile(p => ({ ...p, ifscCode: v.toUpperCase() }))} placeholder="ABCD0123456" placeholderTextColor="#94A3B8" autoCapitalize="characters" style={styles.input} />
                         </>}
                         {profileError ? <Text style={styles.formError}>{profileError}</Text> : null}{profileMessage ? <Text style={styles.formSuccess}>{profileMessage}</Text> : null}
-                        <Text style={styles.formHint}>Enter valid payout details so Heaven Gate can use this account for eligible commission payments. Your registered email remains unchanged.</Text>
+                        <Text style={styles.formHint}>Enter valid payout details so AmbuLens Partner can use this account for eligible commission payments. Your registered email remains unchanged.</Text>
                         <Pressable style={[styles.button, profileSaving && styles.disabledButton]} disabled={profileSaving} onPress={() => void saveProfile()}>{profileSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.buttonText}>Save Profile</Text>}</Pressable>
                     </View>}
                 </> : null}
@@ -1351,9 +1352,9 @@ const styles = StyleSheet.create({
 
     headerRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
 
-    brandBlock: { flexDirection: 'row', alignItems: 'center', gap: 11 }, logo: { width: 48, height: 48, borderRadius: 15, backgroundColor: '#174D48', alignItems: 'center', justifyContent: 'center' }, logoText: { color: '#FFFFFF', fontSize: 17, fontWeight: '900' },
+    brandBlock: { flexDirection: 'row', alignItems: 'center', gap: 11 }, logo: { width: 56, height: 56, borderRadius: 10, backgroundColor: '#FFFFFF' },
 
-    brandCopy: { gap: 3 }, brand: { color: '#17324D', fontSize: 12, fontWeight: '900', letterSpacing: 2 }, eyebrow: { color: '#718096', fontSize: 10, fontWeight: '800', letterSpacing: 1.3 },
+    brandCopy: { gap: 3 }, brand: { color: '#17324D', fontSize: 11, fontWeight: '900', letterSpacing: 0.3 }, eyebrow: { color: '#718096', fontSize: 10, fontWeight: '800', letterSpacing: 1.3 },
 
     refreshButton: { borderWidth: 1, borderColor: '#D7E2DD', borderRadius: 12, paddingVertical: 10, paddingHorizontal: 13, backgroundColor: '#FFFFFF' }, refreshText: { color: '#174D48', fontSize: 12, fontWeight: '800' },
 
